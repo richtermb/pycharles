@@ -105,7 +105,9 @@ class CharlesRequest(object):
         return this_set - other_set
 
     def print_simple_json(self):
-        """Displays only necessary information"""
+        """Displays only necessary information
+        For requests with method 'CONNECT', getting the status will throw a KeyError, so we handle that below.
+        """
         try:
             print(json.dumps({
                 'method': self.request_dict['method'],
