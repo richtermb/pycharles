@@ -61,7 +61,7 @@ class CharlesRequest(object):
 
         Returns
         -------
-        request: the request object.
+        request: the requests module request object.
         """
 
         headers = dict()
