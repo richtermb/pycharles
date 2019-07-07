@@ -24,14 +24,14 @@ class CharlesSession(object):
     def query_request_with_index(self, index):
         """Query and return the request at the specified index.
 
-                Parameters
-                ----------
-                index: int
+        Parameters
+        ----------
+        index: the index of the request
 
-                Returns
-                -------
-                the query result as a charles request.
-                """
+        Returns
+        -------
+        the query result as a charles request.
+        """
         return self._all_requests[index]
 
     def query_requests_with_properties(self, properties):
