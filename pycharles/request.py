@@ -100,7 +100,7 @@ class CharlesRequest(object):
         keys: differences
         """
         this_set = set(self.request_dict.items())
-        other_set = set(other)
+        other_set = set(other.items())
 
         return this_set - other_set
 
