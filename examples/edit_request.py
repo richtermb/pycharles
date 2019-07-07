@@ -1,13 +1,10 @@
 import pycharles
 
-PATH = '../example_sessions/httpbin.chlsj'
+CHARLES_SESSION_PATH = '../example_sessions/httpbin_post.chlsj'
 
 if __name__ == '__main__':
-    sess = pycharles.session.CharlesSession(path=PATH)
+    sess = pycharles.session.CharlesSession(path=CHARLES_SESSION_PATH)
     print('session has {} requests.'.format(sess.requests_count()))
-    queried_sess = sess.query_requests_with_properties({
-        'request.sizes.headers': 242
-    })
-    print('queried session has {} requests.'.format(queried_sess.requests_count()))
-    # print(queried_sess)
-    queried_sess.query_request_with_index(0).print_simple_json()
+    print('changing user-agent of the first request...')
+    sess.query_request_with_index(0).set_header('user-agent', 'google chrome')
+    sess.save('../example_sessions/edited_httpbin_request.chlsj')

@@ -74,6 +74,17 @@ class CharlesSession(object):
 
         return CharlesSession(request_list=result)
 
+    def save(self, path):
+        """Query and return requests with the defined properties in a CharlesSession object.
+
+        Parameters
+        ----------
+        path: path to save the new session file.
+        """
+        bag = [charles_request.request_dict for charles_request in self._all_requests]
+        with open(path, 'w+') as f:
+            json.dump(bag, f)
+
     def fail(self, msg):
         print('CharlesSession instance failed with error: {}'.format(msg))
         exit(-1)
