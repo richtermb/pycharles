@@ -16,6 +16,7 @@ class CharlesRequest(object):
 
     def __init__(self, request_dict):
         self.request_dict = request_dict
+        self.index = -1
 
     def set_header(self, name, value):
         """Set the value for a specified header. If the header exists, this method will overwrite it.

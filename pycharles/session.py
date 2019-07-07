@@ -3,6 +3,13 @@ import request
 import json
 
 
+def _assign_indexes(charles_requests):
+    current_index = 0
+    for _ in charles_requests:
+        _.index = current_index
+        current_index += 1
+
+
 class CharlesSession(object):
     """Charles session object, initialized with a path to the file.
 
@@ -17,6 +24,7 @@ class CharlesSession(object):
             self._all_requests = [request.CharlesRequest(r) for r in request_list]
         else:
             self.fail('only one initialization parameter should be specified')
+        _assign_indexes(self._all_requests)
 
     def requests_count(self):
         return len(self._all_requests)
@@ -32,6 +40,7 @@ class CharlesSession(object):
         -------
         the query result as a charles request.
         """
+        assert self._all_requests[index].index == index
         return self._all_requests[index]
 
     def query_requests_with_properties(self, properties):
@@ -73,6 +82,11 @@ class CharlesSession(object):
                     result.append(charles_request.request_dict)
 
         return CharlesSession(request_list=result)
+
+    def delete_request_at(self, index):
+        """Delete the request at the specified index"""
+        assert self._all_requests[index].index == index
+        del self._all_requests[index]
 
     def save(self, path):
         """Query and return requests with the defined properties in a CharlesSession object.
