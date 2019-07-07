@@ -121,6 +121,5 @@ class CharlesRequest(object):
                 'status': None
             }, indent=4))
 
-
     def print_all_json(self):
         print(json.dumps(self.request_dict, indent=4))
