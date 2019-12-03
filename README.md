@@ -1,14 +1,11 @@
 # pycharles
 
-usage:
+## usage:
 
-Inside the Charles application, create a new session and add some requests.
-
-Then select File > Export Session
-
-Export the session as a JSON session file.
+1. open your desired charles session.
+2. select `File > Export Session`
+3. export the session as a JSON session file.
 
 License
 -------
-
 MIT
