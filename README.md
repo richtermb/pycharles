@@ -15,6 +15,7 @@
 > charles_request = session.query_request_with_index(n)  # return the nth request object in the file, starting from 0
 > charles_request.set_header('User-Agent', 'Nokia')  # set header
 > session.query_requests_with_properties({'method': 'GET', 'response.status': 200})  # query all successful GET requests in the session
+> charles_request.execute()  # execute a request
 ```
 
 License
