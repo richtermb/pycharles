@@ -2,7 +2,7 @@
 
 ## usage:
 
-1. open your desired charles session.
+1. open your desired charles session within the Charles app.
 2. select `File > Export Session`
 3. export as a JSON session file
 
